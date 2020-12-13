@@ -23,13 +23,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/tracking', (req, res) => {
-  console.log(req.body)
-
-  const [ latitude, longitude ] = req.body.split(';')
+  const [ lat, lng ] = req.body.split(';')
 
   io.emit('tracking', {
-    latitude,
-    longitude
+    lat,
+    lng
   })
 
   res.send()
